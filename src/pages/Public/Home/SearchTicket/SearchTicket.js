@@ -25,7 +25,7 @@ const MenuProps = {
     style: {
       backgroundColor: "#0a1e5e",
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
+      // width: 250,
     },
   },
 };
@@ -156,18 +156,18 @@ const SearchTicket = (props) => {
           <div className={classes.search__tab}>
             <Grid container spacing={0} className={classes.psearch__content}>
               <Grid item xs={12}>
-                <Typography gutterBottom noWrap className={classes.title}>
+                <Typography gutterBottom className={classes.title}>
                   <Box fontSize={matchXS ? 14 : 18} fontWeight={500}>
-                    Welcome to Boleto
+                    Chào mừng đến Boleto
                   </Box>
                   <Box fontSize={matchXS ? 20 : 28} fontWeight={600}>
-                    WHAT ARE YOU LOOKING FOR
+                    TÌM KIẾM PHIM BẠN QUAN TÂM
                   </Box>
                 </Typography>
               </Grid>
             </Grid>
             <Grid container className={classes.search__bar} spacing={2}>
-              <Grid item xs={12} md={6} lg>
+              <Grid item xs={12} md={6}>
                 <FormControl
                   variant="outlined"
                   fullWidth
@@ -176,7 +176,7 @@ const SearchTicket = (props) => {
                   <InputLabel htmlFor="maPhim">Phim</InputLabel>
                   <Select
                     required
-                    fullWidth={true}
+                    // fullWidth={true}
                     value={search.maPhim}
                     onChange={handleChange}
                     label="Phim"
@@ -194,14 +194,14 @@ const SearchTicket = (props) => {
                 </FormControl>
               </Grid>
               {search.maPhim && movieDetail ? (
-                <Grid item xs={12} md={6} lg>
+                <Grid item xs={12} md={6}>
                   <FormControl variant="outlined" fullWidth>
                     <InputLabel htmlFor="maCumRap">Rạp</InputLabel>
                     <Select
                       value={search.maCumRap}
                       onChange={handleChange}
                       label="Rạp"
-                      fullWidth={true}
+                      // fullWidth={true}
                       inputProps={{
                         name: "maCumRap",
                         id: "maCumRap",
@@ -217,14 +217,14 @@ const SearchTicket = (props) => {
                 </Grid>
               ) : undefined}
               {search.maCumRap && (
-                <Grid item xs={12} md={6} lg>
+                <Grid item xs={12} md={6}>
                   <FormControl variant="outlined" fullWidth>
                     <InputLabel htmlFor="showDate">Ngày Chiếu</InputLabel>
                     <Select
                       value={search.showDate}
                       onChange={handleChange}
                       label="Ngày Chiếu"
-                      fullWidth={true}
+                      // fullWidth={true}
                       inputProps={{
                         name: "showDate",
                         id: "showDate",
@@ -240,7 +240,7 @@ const SearchTicket = (props) => {
                 </Grid>
               )}
               {search.showDate && (
-                <Grid item xs={12} md={6} lg>
+                <Grid item xs={12} md={6}>
                   <FormControl variant="outlined" fullWidth>
                     <InputLabel htmlFor="showTime">Giờ Chiếu</InputLabel>
                     <Select
@@ -249,7 +249,7 @@ const SearchTicket = (props) => {
                       value={search.showTime}
                       onChange={handleChange}
                       label="Giờ Chiếu"
-                      fullWidth={true}
+                      // fullWidth={true}
                       inputProps={{
                         name: "showTime",
                         id: "showTime",
@@ -265,7 +265,7 @@ const SearchTicket = (props) => {
                 </Grid>
               )}
               {search.showTime && (
-                <Grid item xs={12} md={4} lg>
+                <Grid item xs={12} md={4}>
                   <GlobalButton
                     nameButton="SEARCH"
                     smallButton

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core";
 import { Footer, Navbar } from "./components";
 import { useLocation } from "react-router";
+import { motion } from "framer-motion";
 
 //styles
 const useStyles = makeStyles((theme) => ({
@@ -16,7 +17,7 @@ const PublicLayout = (props) => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const { children } = props; 
+  const { children } = props;
   return (
     <div className={classes.root}>
       <Navbar />

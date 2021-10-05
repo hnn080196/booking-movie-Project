@@ -7,7 +7,6 @@ import {
   withStyles,
   Divider,
   Typography,
-  Drawer,
   Box,
   Button,
   Container,
@@ -20,7 +19,6 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import styles from "./styles";
 import { useDispatch, useSelector } from "react-redux";
 import {
   bookingListAction,
@@ -46,36 +44,15 @@ import { Link } from "react-router-dom";
 import { history } from "Routes";
 
 import Swal from "sweetalert2";
-import { Loading } from "components";
 import { thongTinTaiKhoaAction } from "store/actions/user";
 import BookingHistory from "pages/Public/Component/BookingHistory";
 import LoginHandle from "components/LoginHandle";
+import { chonGheStyles, colorlibStepIconStyles, mainStyles } from "./styles";
+import { pageTransitions, pageVariants } from "util/animated/transitionPage";
 // component colorlibconnector
 /***************************************************************** */
 
-const useColorlibStepIconStyles = makeStyles({
-  root: {
-    backgroundColor: "#31d7a9",
-    zIndex: 1,
-    color: "#fff",
-    width: 50,
-    height: 50,
-    display: "flex",
-    borderRadius: "50%",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  active: {
-    backgroundImage:
-      "linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)",
-    boxShadow: "0 4px 10px 0 rgba(0,0,0,.25)",
-  },
-  completed: {
-    backgroundImage:
-      "linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)",
-  },
-});
-
+const useColorlibStepIconStyles = makeStyles(colorlibStepIconStyles);
 function ColorlibStepIcon(props) {
   const classes = useColorlibStepIconStyles();
   const { active, completed } = props;
@@ -97,7 +74,6 @@ function ColorlibStepIcon(props) {
     </div>
   );
 }
-
 ColorlibStepIcon.propTypes = {
   active: PropTypes.bool,
   completed: PropTypes.bool,
@@ -130,66 +106,7 @@ const ColorlibConnector = withStyles({
 //
 
 //Đặt Vé
-const useChonGheStyles = makeStyles((theme) => ({
-  row: {
-    textAlign: "center",
-  },
-
-  seat: {
-    minWidth: "40px",
-    height: "40px",
-    padding: "0",
-    margin: "3px",
-    cursor: "pointer",
-    "&:hover": { backgroundColor: "#0adc98" },
-    "&.booking-seat": {
-      backgroundColor: "#0adc98",
-    },
-    "&.booked-seat": {
-      backgroundColor: "#999",
-    },
-    [theme.breakpoints.down(620)]: {
-      minWidth: "30px",
-      marginBottom: "5px",
-      height: "30px",
-      // fontSize: "10px",
-    },
-    [theme.breakpoints.down("xs")]: {
-      minWidth: "28px",
-      height: "28px",
-      // fontSize: "10px",
-    },
-  },
-  boughtSeat: {
-    backgroundColor: "#999",
-  },
-  note: {
-    marginTop: "20px",
-    display: "flex",
-    justifyContent: "space-around",
-    [theme.breakpoints.down("xs")]: {
-      flexDirection: "column",
-    },
-  },
-  screenArea: {
-    perspective: "100px",
-    margin: "0 auto 50px",
-    // width: "500px",
-    display: "flex",
-    justifyContent: "center",
-    [theme.breakpoints.down("sm")]: {
-      margin: "0 auto 30px",
-    },
-  },
-  screen: {
-    backgroundColor: "#fff",
-    height: "80px",
-    width: "80%",
-    margin: "15px 0",
-    transform: "rotateX(-15deg)",
-    boxShadow: "0 10px 20px rgba(255, 255, 255, 0.7)",
-  },
-}));
+const useChonGheStyles = makeStyles(chonGheStyles);
 function ChonGhe(props) {
   const classes = useChonGheStyles();
   const { chiTietPhongVe, bookingList } = props;
@@ -248,7 +165,6 @@ function ChonGhe(props) {
                 ) : (
                   ""
                 )}
-                {/* {(index + 1) % 16 === 0 ? <br /> : ""} */}
               </Fragment>
             );
           })}
@@ -376,10 +292,9 @@ function KiemTraThongTin(props) {
     </Grid>
   );
 }
-/**************************************************************** */
 
 // KetQua Da Dat
-//function getstep
+
 /***************************************************************** */
 
 function getSteps() {
@@ -411,7 +326,7 @@ const getStepContent = (
 };
 // style
 /***************************************************************** */
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles(mainStyles);
 const CheckoutPage = (props) => {
   const classes = useStyles();
   const { chiTietPhongVe, bookingList } = useSelector((state) => state.booking);
@@ -606,7 +521,13 @@ const CheckoutPage = (props) => {
   );
 
   return (
-    <div>
+    <div
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransitions}
+    >
       <AppBar position="fixed" classes={{ root: classes.appBar }}>
         <Toolbar className={classes.toolbarContainer}>
           <Typography variant="h6" noWrap className={classes.title}>

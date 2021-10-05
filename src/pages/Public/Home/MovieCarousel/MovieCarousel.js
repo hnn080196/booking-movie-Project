@@ -27,9 +27,9 @@ const MovieCarousel = (props) => {
   const theme = useTheme();
   const [value, setValue] = useState(0);
   const [routes] = useState([
-    { name: "now showing" },
-    { name: "coming show" },
-    { name: "exclusive" },
+    { name: "Sắp Chiếu" },
+    { name: "Đang Chiếu" },
+    { name: "Hot" },
   ]);
   const { movieList } = props;
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
@@ -38,10 +38,7 @@ const MovieCarousel = (props) => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  useEffect(() => {
-    // setValue();
-  }, []);
-  console.log("object");
+
   return (
     <section className={classes.movieCarousel} id="movies">
       <Container maxWidth="lg">

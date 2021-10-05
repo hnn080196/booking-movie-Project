@@ -4,6 +4,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MovieCardSimple from "../MovieCardSimple";
+import { motion } from "framer-motion";
+import { pageTransitions, pageVariants } from "util/animated/transitionPage";
 
 function ArrowDisplayNone(props) {
   return <div></div>;
@@ -47,6 +49,7 @@ const TabPanelCarousel = (props) => {
     ],
   };
   return (
+    
     <div
       role="tabpanel"
       hidden={value !== index}

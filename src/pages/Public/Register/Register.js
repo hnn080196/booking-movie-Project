@@ -1,20 +1,24 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
+import React from "react";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import { MenuItem } from "@material-ui/core";
-import { Link, NavLink } from "react-router-dom";
+import {
+  MenuItem,
+  Avatar,
+  Button,
+  TextField,
+  Grid,
+  Box,
+  Typography,
+} from "@material-ui/core";
+import { NavLink } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useDispatch } from "react-redux";
 import { dangKyAction } from "store/actions/user";
 import { GROUPAPI } from "util/settings/config";
+import { groups, maLoaiNguoiDungs } from "./dataSelector";
+import styles from "./styles";
+import { pageTransitions, pageVariants } from "util/animated/transitionPage";
 const textValidation = {
   fillIn: "Nhập vào trường này",
   email: "Email chưa chính xác",
@@ -49,98 +53,9 @@ function Copyright() {
     </Typography>
   );
 }
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    margin: theme.spacing(8, 4),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.common.white,
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-  textfield: {
-    "& .MuiInputBase-input": {
-      color: "#000",
-    },
-    "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
-      borderColor: "#000 !important",
-    },
-  },
-  menuPaper: {
-    color: "#000",
-  },
-  menuList: {
-    "& .MuiListItem-button:hover": {
-      backgroundColor: "rgba(0,0,0,0.5)",
-    },
-  },
-}));
-const groups = [
-  {
-    value: "GP01",
-  },
-  {
-    value: "GP02",
-  },
-  {
-    value: "GP03",
-  },
-  {
-    value: "GP04",
-  },
-  {
-    value: "GP05",
-  },
-  {
-    value: "GP06",
-  },
-  {
-    value: "GP07",
-  },
-  {
-    value: "GP08",
-  },
-  {
-    value: "GP09",
-  },
-  {
-    value: "GP10",
-  },
-  {
-    value: "GP11",
-  },
-  {
-    value: "GP12",
-  },
-  {
-    value: "GP13",
-  },
-  {
-    value: "GP14",
-  },
-];
-const maLoaiNguoiDungs = [
-  {
-    value: "KhachHang",
-    name: "Khách Hàng",
-  },
-  {
-    value: "QuanTri",
-    name: "Quản Trị",
-  },
-];
+const useStyles = makeStyles(styles);
 
-const Register = (props) => {
+const Register = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const formik = useFormik({
@@ -160,7 +75,14 @@ const Register = (props) => {
   });
   return (
     <>
-      <div className={classes.paper}>
+      <div
+        className={classes.paper}
+        initial="out"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransitions}
+      >
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
@@ -177,7 +99,6 @@ const Register = (props) => {
                 required
                 fullWidth
                 label="Tài khoản"
-                autoFocus
                 classes={{ root: classes.textfield }}
                 onChange={formik.handleChange}
                 size="small"
@@ -192,7 +113,6 @@ const Register = (props) => {
                 fullWidth
                 label="Mật khẩu"
                 name="matKhau"
-                autoComplete="mk"
                 type="password"
                 size="small"
                 classes={{ root: classes.textfield }}
@@ -208,7 +128,6 @@ const Register = (props) => {
                 fullWidth
                 name="hoTen"
                 label="Họ Tên"
-                autoComplete="hoten"
                 size="small"
                 classes={{ root: classes.textfield }}
                 onChange={formik.handleChange}
@@ -223,7 +142,6 @@ const Register = (props) => {
                 fullWidth
                 label="Email"
                 name="email"
-                autoComplete="email"
                 size="small"
                 classes={{ root: classes.textfield }}
                 onChange={formik.handleChange}
@@ -231,7 +149,6 @@ const Register = (props) => {
                 helperText={formik.touched.email && formik.errors.email}
               />
             </Grid>
-
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -239,20 +156,19 @@ const Register = (props) => {
                 fullWidth
                 name="soDt"
                 label="Số điện thoại"
-                autoComplete="sdt"
                 size="small"
                 classes={{ root: classes.textfield }}
                 onChange={formik.handleChange}
                 error={formik.touched.soDt && formik.errors.soDt}
                 helperText={formik.touched.soDt && formik.errors.soDt}
               />
+              {/* <TextFieldCustom name="soDt" label="Số điện thoại" /> */}
             </Grid>
             <Grid item xs={6}>
               <TextField
                 onChange={formik.handleChange}
                 classes={{ root: classes.textfield }}
                 name="maNhom"
-                autoComplete="maNhom"
                 select
                 fullWidth
                 label="Mã nhóm"
@@ -286,7 +202,6 @@ const Register = (props) => {
                 classes={{ root: classes.textfield }}
                 onChange={formik.handleChange}
                 name="maLoaiNguoiDung"
-                autoComplete="maLoaiNguoiDung"
                 select
                 fullWidth
                 label="Chức năng"

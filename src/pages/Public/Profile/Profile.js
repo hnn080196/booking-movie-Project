@@ -1,16 +1,6 @@
-import {
-  Box,
-  Button,
-  Container,
-  Grid,
-  Paper,
-  Tab,
-  Tabs,
-  Typography,
-} from "@material-ui/core";
-// import { TabPanel } from "@material-ui/lab";
+import { Container, Grid, Tab, Tabs } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/styles";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 import PropTypes from "prop-types";
 import styles from "./styles";
@@ -23,6 +13,8 @@ import {
 } from "store/actions/user";
 import UpdateModal from "../Component/UpdateModal";
 import ChangePassword from "../Component/ChangePassword";
+import { motion } from "framer-motion";
+import { pageTransitions, pageVariants } from "util/animated/transitionPage";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -73,7 +65,14 @@ function Profile() {
     setValue(index);
   };
   return (
-    <div className={classes.profile}>
+    <motion.div
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransitions}
+      className={classes.profile}
+    >
       <Container maxWidth="lg">
         <Grid container>
           <Grid item xs={12} className={classes.profileHeader}>
@@ -128,7 +127,7 @@ function Profile() {
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </motion.div>
   );
 }
 

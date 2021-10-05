@@ -1,12 +1,12 @@
 const drawerWidth = 300;
-export default (theme) => ({
+export const mainStyles = (theme) => ({
   root: {
     display: "flex",
   },
   appBar: {
     // width: `calc(100% - ${drawerWidth}px)`,
     // marginRight: drawerWidth,
-      backgroundColor: "#0a1e5e",
+    backgroundColor: "#0a1e5e",
   },
   drawer: {
     width: drawerWidth,
@@ -54,5 +54,88 @@ export default (theme) => ({
   },
   hide: {
     display: "none",
+  },
+});
+export const chonGheStyles = (theme) => ({
+  row: {
+    textAlign: "center",
+  },
+
+  seat: {
+    minWidth: "40px",
+    height: "40px",
+    padding: "0",
+    margin: "3px",
+    cursor: "pointer",
+    "&:hover": { backgroundColor: "#0adc98" },
+    "&.booking-seat": {
+      backgroundColor: "#0adc98",
+    },
+    "&.booked-seat": {
+      backgroundColor: "#999",
+    },
+    [theme.breakpoints.down(620)]: {
+      minWidth: "30px",
+      marginBottom: "5px",
+      height: "30px",
+      // fontSize: "10px",
+    },
+    [theme.breakpoints.down("xs")]: {
+      minWidth: "28px",
+      height: "28px",
+      // fontSize: "10px",
+    },
+  },
+  boughtSeat: {
+    backgroundColor: "#999",
+  },
+  note: {
+    marginTop: "20px",
+    display: "flex",
+    justifyContent: "space-around",
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: "column",
+    },
+  },
+  screenArea: {
+    perspective: "100px",
+    margin: "0 auto 50px",
+    // width: "500px",
+    display: "flex",
+    justifyContent: "center",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0 auto 30px",
+    },
+  },
+  screen: {
+    backgroundColor: "#fff",
+    height: "80px",
+    width: "80%",
+    margin: "15px 0",
+    transform: "rotateX(-15deg)",
+    boxShadow: "0 10px 20px rgba(255, 255, 255, 0.7)",
+  },
+});
+
+export const colorlibStepIconStyles = (theme) => ({
+  root: {
+    backgroundColor: "#31d7a9",
+    zIndex: 1,
+    color: "#fff",
+    width: 50,
+    height: 50,
+    display: "flex",
+    borderRadius: "50%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  active: {
+    backgroundImage:
+      "linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)",
+    boxShadow: "0 4px 10px 0 rgba(0,0,0,.25)",
+  },
+  completed: {
+    backgroundImage:
+      "linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)",
   },
 });

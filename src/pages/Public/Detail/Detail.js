@@ -21,13 +21,9 @@ import moment from "moment";
 import { Rating } from "@material-ui/lab";
 import DetailTabPanel from "../Component/DetailTabPanel";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { pageTransitions, pageVariants } from "util/animated/transitionPage";
 const useStyles = makeStyles((theme) => ({
-  detail: {
-    // minHeight: "90vh",
-  },
-  detail__content: {
-    // position : "absolute",
-  },
   detail__rating: {
     display: "flex",
     flexDirection: "column",
@@ -71,8 +67,12 @@ const Detail = (props) => {
   };
   return (
     <Fragment>
-      <div
-        className={classes.detail}
+      <motion.div
+        initial="out"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransitions}
         style={{
           background: `url(${movieDetail.hinhAnh}) no-repeat center / cover `,
         }}
@@ -204,7 +204,7 @@ const Detail = (props) => {
             </Grid>
           </Container>
         </CustomCard>
-      </div>
+      </motion.div>
     </Fragment>
   );
 };

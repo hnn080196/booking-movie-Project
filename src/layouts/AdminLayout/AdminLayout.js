@@ -157,18 +157,6 @@ const AdminLayout = (props) => {
                 }}
               />
             </div>
-            {/* <Typography
-              component="h1"
-              variant="h6"
-              color="inherit"
-              noWrap
-              className={classes.title}
-              onClick={() => {
-                history.push("/admin");
-              }}
-            >
-              BOLETO
-            </Typography> */}
             <div>
               <IconButton
                 color="inherit"

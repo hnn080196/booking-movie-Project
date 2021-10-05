@@ -18,11 +18,8 @@ import SearchField from "../Films/SearchField";
 /***************************Edit toolbar************************ */
 
 function EditToolBar(props) {
-  // const [filter, setFilter] = useState("");
   const dispatch = useDispatch();
   const handleSearchTermChange = (newFilter) => {
-    // console.log(newFilter);
-    // setFilter(newFilter.searchTerm);
     dispatch(layDanhSachNguoiDungAction(newFilter.searchTerm));
   };
   return (

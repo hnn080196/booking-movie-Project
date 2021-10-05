@@ -27,8 +27,9 @@ const IconWrapperStyle = styled("div")(({ theme }) => ({
     0.24
   )} 100%)`,
 }));
-const TOTAL = 714000;
-export default function MovieCard() {
+
+export default function MovieCard(props) {
+  const { total } = props;
   return (
     <RootStyle>
       <IconWrapperStyle>
@@ -36,7 +37,7 @@ export default function MovieCard() {
           style={{ width: "30px", height: "30px", color: "#005249" }}
         />
       </IconWrapperStyle>
-      <Typography variant="h3">{TOTAL}</Typography>
+      <Typography variant="h3">{total}</Typography>
       <Typography variant="subtitle2" style={{ opacity: 0.72 }}>
         Phim
       </Typography>

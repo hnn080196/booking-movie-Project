@@ -7,8 +7,8 @@ const RootStyle = styled(Card)(({ theme }) => ({
   boxShadow: "none",
   textAlign: "center",
   padding: theme.spacing(5, 0),
-  color: "#B72136",
-  backgroundColor: "#FFE7D9",
+  color: "#B78103",
+  backgroundColor: "#FFE16A",
   borderRadius: "20px",
 }));
 
@@ -22,13 +22,12 @@ const IconWrapperStyle = styled("div")(({ theme }) => ({
   justifyContent: "center",
   marginBottom: theme.spacing(3),
   color: theme.palette.primary.dark,
-  backgroundImage: `linear-gradient(135deg, ${alpha("#FFE7D9", 0)} 0%, ${alpha(
-    "#B72136",
+  backgroundImage: `linear-gradient(135deg, ${alpha("#FFE16A", 0)} 0%, ${alpha(
+    "#B78103",
     0.24
   )} 100%)`,
 }));
-export default function CinemaCard(props) {
-  const { total } = props;
+export default function DeviceCard() {
   return (
     <RootStyle>
       <IconWrapperStyle>
@@ -36,9 +35,9 @@ export default function CinemaCard(props) {
           style={{ width: "30px", height: "30px", color: "#B72136" }}
         />
       </IconWrapperStyle>
-      <Typography variant="h3">{total}</Typography>
+      <Typography variant="h3">60</Typography>
       <Typography variant="subtitle2" style={{ opacity: 0.72 }}>
-        Hệ Thống Rạp
+        Rạp
       </Typography>
     </RootStyle>
   );

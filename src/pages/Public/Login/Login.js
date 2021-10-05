@@ -1,13 +1,13 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
+import {
+  Typography,
+  Box,
+  TextField,
+  Button,
+  Avatar,
+  Grid,
+} from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { useFormik } from "formik";
@@ -15,12 +15,13 @@ import * as yup from "yup";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginAction } from "store/actions/user";
+import { pageTransitions, pageVariants } from "util/animated/transitionPage";
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" to="/" exact>
-        Your Website
+        My Website
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -59,7 +60,7 @@ const validationSchema = yup.object({
   taiKhoan: yup.string().required("Nhập vào trường này"),
   matKhau: yup.string().required("Nhập vào trường này"),
 });
-const Login = (props) => {
+const Login = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const formik = useFormik({
@@ -72,9 +73,15 @@ const Login = (props) => {
       dispatch(loginAction(values));
     },
   });
-  console.log(`formik`, formik);
   return (
-    <div className={classes.paper}>
+    <div
+      className={classes.paper}
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransitions}
+    >
       <Avatar className={classes.avatar}>
         <LockOutlinedIcon />
       </Avatar>
@@ -88,15 +95,12 @@ const Login = (props) => {
           fullWidth
           label="Tài Khoản"
           name="taiKhoan"
-          autoComplete="taiKhoan"
           onChange={formik.handleChange}
-          autoFocus
           className={classes.textfield}
           error={formik.touched.taiKhoan && formik.errors.taiKhoan}
           helperText={formik.touched.taiKhoan && formik.errors.taiKhoan}
         />
         <TextField
-          color="primary"
           variant="outlined"
           margin="normal"
           fullWidth
@@ -104,16 +108,11 @@ const Login = (props) => {
           label="Mật Khẩu"
           type="password"
           onChange={formik.handleChange}
-          autoComplete="current-password"
           classes={{ root: classes.textfield }}
           error={formik.touched.matKhau && formik.errors.matKhau}
           helperText={formik.touched.matKhau && formik.errors.matKhau}
         />
-        <FormControlLabel
-          style={{ color: "#000" }}
-          control={<Checkbox value="remember" color="primary" />}
-          label="Remember me"
-        />
+
         <Button
           type="submit"
           fullWidth
@@ -124,11 +123,6 @@ const Login = (props) => {
           Đăng Nhập
         </Button>
         <Grid container>
-          <Grid item xs>
-            <Link href="#" variant="body2">
-              Quên Mật Khẩu ?
-            </Link>
-          </Grid>
           <Grid item>
             <Link to="/register" variant="body2" exact={true}>
               {"Bạn chưa có tài khoản? Đăng Ký"}

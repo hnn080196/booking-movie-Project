@@ -61,9 +61,18 @@ export const dangKyAction =
       dispatch(openLoadingAction);
       const response = await dangKy(thongTinDangKy);
       dispatch(closeLoadingAction);
-      history.push("/");
+      await Swal.fire(
+        "Đăng Ký Thành Công",
+        "You clicked the button!",
+        "success"
+      );
+      history.push("/login");
     } catch (error) {
-      console.log(error.response?.data);
+      Swal.fire({
+        icon: "error",
+        title: "Đăng Ký Thất Bại",
+        text: `${error.response?.data}`,
+      });
     }
   };
 export const layDanhSachNguoiDungAction =
