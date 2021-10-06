@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from "react";
-import PropTypes from "prop-types";
 import {
   Button,
   Dialog,
@@ -12,12 +11,14 @@ import {
 } from "@material-ui/core";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { GROUPAPI } from "util/settings/config";
-import { capNhatThongTinNguoDungAction } from "store/actions/user";
+import { GROUPAPI, TOKEN, USER_LOGIN } from "util/settings/config";
 import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
+import { capNhatThongTinNguoiDung } from "services/QuanLyNguoiDungServices";
+import { history } from "Routes";
+
 const validationSchema = yup.object({
-  matKhauCu: yup.string().min(8, "Mật khẩu ít nhất 8 ký tự"),
+  matKhauCu: yup.string(),
   matKhau: yup
     .string()
     .min(8, "Mật khẩu ít nhất 8 ký tự")
@@ -32,7 +33,6 @@ const validationSchema = yup.object({
 });
 const useStyles = makeStyles((theme) => ({
   textField: {
-    // width: "400px",
     "& .MuiInputBase-input": {
       color: "#000",
     },
@@ -69,8 +69,25 @@ const ChangePassword = (props) => {
       values.hoTen = thongTinTaiKhoan.hoTen;
 
       if (values.matKhauCu === thongTinTaiKhoan.matKhau) {
-        await dispatch(capNhatThongTinNguoDungAction(values));
-        
+        try {
+          const response = await capNhatThongTinNguoiDung(values);
+          await Swal.fire(
+            "Cập Nhật Người Dùng Thành Công",
+            "Bấm nút để tiếp tục",
+            "success"
+          );
+          setOpen(false);
+          localStorage.removeItem(USER_LOGIN);
+          localStorage.removeItem(TOKEN);
+          history.push("/");
+          window.location.reload();
+        } catch (error) {
+          Swal.fire({
+            icon: "error",
+            title: "Cập Nhật Người Dùng Thất Bại",
+            text: `${error.response?.data}`,
+          });
+        }
       }
       //
     },

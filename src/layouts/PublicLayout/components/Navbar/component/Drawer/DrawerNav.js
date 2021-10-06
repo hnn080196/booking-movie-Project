@@ -6,7 +6,6 @@ import {
   IconButton,
   List,
   ListItem,
-  ListItemIcon,
   ListItemText,
   makeStyles,
 } from "@material-ui/core";
@@ -15,7 +14,6 @@ import { history } from "Routes";
 import { TOKEN, USER_LOGIN } from "util/settings/config";
 import _ from "lodash";
 
-import SearchIcon from "@material-ui/icons/Search";
 import { NavHashLink } from "react-router-hash-link";
 //
 const useStyles = makeStyles((theme) => ({

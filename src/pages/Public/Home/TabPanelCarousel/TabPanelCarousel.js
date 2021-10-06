@@ -4,8 +4,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MovieCardSimple from "../MovieCardSimple";
-import { motion } from "framer-motion";
-import { pageTransitions, pageVariants } from "util/animated/transitionPage";
 
 function ArrowDisplayNone(props) {
   return <div></div>;
@@ -15,7 +13,6 @@ const TabPanelCarousel = (props) => {
 
   let settings = {
     infinite: false,
-    speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,

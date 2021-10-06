@@ -38,7 +38,7 @@ export const postBookingInfoAction =
       const response = await datVe(thongTinDatVe);
       await dispatch(getBookingListAction(thongTinDatVe.maLichChieu));
       dispatch(closeLoadingAction);
-      Swal.fire("Đặt Vé Thành Công", "You clicked the button!", "success");
+      Swal.fire("Đặt Vé Thành Công", "Bấm nút để tiếp tục", "success");
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -55,7 +55,7 @@ export const taoLichChieuAction =
       const response = await taoLichChieu(thongTinLichChieu);
       await Swal.fire(
         "Tạo Lịch Chiếu Thành Công",
-        "You clicked the button!",
+        "Bấm nút để tiếp tục",
         "success"
       );
     } catch (error) {

@@ -13,7 +13,6 @@ import { NavLink } from "react-router-dom";
 
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/DeleteOutlined";
-import EventIcon from "@material-ui/icons/Event";
 import SearchField from "../Films/SearchField";
 /***************************Edit toolbar************************ */
 

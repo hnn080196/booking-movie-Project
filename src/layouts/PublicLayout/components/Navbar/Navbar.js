@@ -23,7 +23,7 @@ import GlobalButton from "components/Button/Button";
 import { useState } from "react";
 import DrawerNav from "./component/Drawer";
 import CommonTabs from "components/CommonTabs";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import _ from "lodash";
 import { TOKEN, USER_LOGIN } from "util/settings/config";
@@ -68,7 +68,6 @@ const Navbar = () => {
     prevOpen.current = open;
   }, [open]);
 
-  const matchSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchMD = useMediaQuery(theme.breakpoints.down("md"));
   const renderLogin = () => {
     if (_.isEmpty(userLogin)) {

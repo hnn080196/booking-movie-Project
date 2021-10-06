@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -10,7 +9,6 @@ import { Box, Button, Divider, Modal, Fade } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
 import playButton from "assets/img/play-video.png";
 import Backdrop from "@material-ui/core/Backdrop";
-import { history } from "Routes";
 import GlobalButton from "components/Button/Button";
 import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({

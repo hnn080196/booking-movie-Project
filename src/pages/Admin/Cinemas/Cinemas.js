@@ -1,11 +1,10 @@
-import { Avatar, Button, IconButton, makeStyles } from "@material-ui/core";
+import { Avatar, IconButton, makeStyles } from "@material-ui/core";
 import { DataGrid, GridToolbarContainer } from "@mui/x-data-grid";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getInfoCinemaListAction } from "store/actions/cinemaAction";
 
 import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/DeleteOutlined";
 import { NavLink } from "react-router-dom";
 import SearchField from "../Films/SearchField";
 function renderImage(params) {
@@ -31,8 +30,6 @@ const useRowMenuStyles = makeStyles((theme) => ({
 }));
 function RowMenuCell(props) {
   const { id } = props;
-
-  const dispatch = useDispatch();
   const classes = useRowMenuStyles();
   return (
     <div className={classes.root}>

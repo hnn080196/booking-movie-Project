@@ -16,24 +16,7 @@ const useRowMenuStyles = makeStyles((theme) => ({
     color: theme.palette.text.primary,
   },
 }));
-function RowMenuCell(props) {
-  const { id } = props;
 
-  const dispatch = useDispatch();
-  const classes = useRowMenuStyles();
-  return (
-    <div className={classes.root}>
-      <IconButton
-        color="primary"
-        className={classes.textPrimary}
-        size="small"
-        aria-label="edit"
-      >
-        <EditIcon fontSize="small" />
-      </IconButton>
-    </div>
-  );
-}
 const columns = [
   {
     field: "maCumRap",
@@ -43,18 +26,6 @@ const columns = [
   },
   { field: "tenCumRap", headerName: "Tên cụm rạp", width: 200 },
   { field: "diaChi", headerName: "Địa chỉ", width: 200 },
-  {
-    field: "actions",
-    headerName: "Hành động",
-    renderCell: RowMenuCell,
-    sortable: false,
-    width: 150,
-    headerAlign: "center",
-    filterable: false,
-    align: "center",
-    disableColumnMenu: true,
-    disableReorder: true,
-  },
 ];
 
 function Theater(props) {
@@ -78,7 +49,6 @@ function Theater(props) {
         getRowId={(row) => row.maCumRap}
         onPageChange={(newPage) => setPage(newPage)}
       />
-      
     </div>
   );
 }

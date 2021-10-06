@@ -14,7 +14,6 @@ import { motion } from "framer-motion";
 import { pageTransitions, pageVariants } from "util/animated/transitionPage";
 
 const Home = () => {
-  const theme = useTheme();
   const { cinemaList } = useSelector((state) => state.cinemas);
   const { movieList } = useSelector((state) => state.movies);
   const dispatch = useDispatch();

@@ -33,6 +33,5 @@ export default (state = initialState, action) => {
       return { ...state, bookingList: [] };
     default:
       return { ...state };
-      break;
   }
 };

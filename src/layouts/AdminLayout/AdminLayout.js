@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -7,7 +6,6 @@ import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
-import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
@@ -22,6 +20,7 @@ import { ThemeProvider, createTheme } from "@material-ui/core/styles";
 import { history } from "Routes";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import logo from "assets/img/logo.png";
+import { TOKEN, USER_LOGIN } from "util/settings/config";
 const drawerWidth = 240;
 const adminTheme = createTheme({
   palette: {
@@ -178,7 +177,15 @@ const AdminLayout = (props) => {
                   <HomeIcon />
                 </Badge>
               </IconButton>
-              <IconButton color="inherit">
+              <IconButton
+                color="inherit"
+                onClick={() => {
+                  localStorage.removeItem(USER_LOGIN);
+                  localStorage.removeItem(TOKEN);
+                  history.push("/");
+                  window.location.reload();
+                }}
+              >
                 <Badge color="secondary">
                   <ExitToAppIcon />
                 </Badge>

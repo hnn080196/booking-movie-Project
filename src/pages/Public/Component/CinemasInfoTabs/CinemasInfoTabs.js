@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import {
   Box,
   Card,
@@ -13,12 +12,10 @@ import {
   Typography,
   useTheme,
   useMediaQuery,
-  Button,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import CinemasInfoTabPanel from "../CinemasInfoTabPanel/CinemasInfoTabPanel";
 import moment from "moment";
-import playButton from "assets/img/play-video.png";
 import { history } from "Routes";
 
 const useStyles = makeStyles((theme) => ({
@@ -68,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: "200px",
     minWidth: "150px",
     position: "relative",
-    cursor : "pointer"
+    cursor: "pointer",
   },
   card: {
     display: "flex",
@@ -170,7 +167,7 @@ const CinemasInfoTabs = (props) => {
                         src={phim.hinhAnh}
                         title={phim.tenPhim}
                         onClick={() => {
-                          history.push(`/detail/${phim.maPhim}`)
+                          history.push(`/detail/${phim.maPhim}`);
                         }}
                       />
                       {matchXS ? (

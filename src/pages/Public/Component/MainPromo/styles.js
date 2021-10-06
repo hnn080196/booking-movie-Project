@@ -1,4 +1,3 @@
-import { red } from "@material-ui/core/colors";
 
 export default (theme) => ({
   mainPromo: {
