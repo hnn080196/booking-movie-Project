@@ -4,5 +4,6 @@ file balsamid mockup : Movie-project-1.bmpr
 2. Chi Tiết 
 3. Thông Tin Tài Khoản
 4. Đặt Vé 
-5. Admin
-# deploy 
+5. Admin 
+# deploy
+link : https://booking-movie-project-ten.vercel.app/
