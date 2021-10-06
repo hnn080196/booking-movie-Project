@@ -12,6 +12,7 @@ import { ThongTinDatVe } from "_core/models/ThongTinDatVe";
 import { openLoadingAction, closeLoadingAction } from "store/actions/loading";
 import { ThongTinTaoLichChieu } from "_core/models/ThongTinLichChieu";
 import Swal from "sweetalert2";
+import { history } from "Routes";
 
 export const getBookingListAction = (maLichChieu) => async (dispatch) => {
   try {
@@ -58,6 +59,7 @@ export const taoLichChieuAction =
         "Bấm nút để tiếp tục",
         "success"
       );
+      history.goBack();
     } catch (error) {
       Swal.fire({
         icon: "error",

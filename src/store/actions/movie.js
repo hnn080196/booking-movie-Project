@@ -29,6 +29,7 @@ export const themPhimAction = (formData) => async (dispatch) => {
       "You clicked the button!",
       "success"
     );
+    history.goBack();
   } catch (errors) {
     Swal.fire({
       icon: "error",
