@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { memo, useEffect } from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import GoBackHomeButton from "components/GoHomeButton";
+import { Loading } from "components";
+import { useSelector } from "react-redux";
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
@@ -24,10 +26,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 function UserLayout(props) {
   const classes = useStyles();
+  const { isLoading } = useSelector((state) => state.loading);
   useEffect(() => {
     window.scrollTo(0, 0);
   });
   const { children } = props;
+  if (isLoading) return <Loading />;
+
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -49,4 +54,4 @@ function UserLayout(props) {
   );
 }
 
-export default UserLayout;
+export default memo(UserLayout);

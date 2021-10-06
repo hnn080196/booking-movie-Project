@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -21,7 +21,7 @@ import { history } from "Routes";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import logo from "assets/img/logo.png";
 import { TOKEN, USER_LOGIN } from "util/settings/config";
-const drawerWidth = 240;
+const drawerWidth = 200;
 const adminTheme = createTheme({
   palette: {
     primary: {
@@ -222,6 +222,4 @@ const AdminLayout = (props) => {
   );
 };
 
-AdminLayout.propTypes = {};
-
-export default AdminLayout;
+export default memo(AdminLayout);

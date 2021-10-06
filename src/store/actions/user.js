@@ -45,7 +45,7 @@ export const loginAction = (thongTinDangNhap) => async (dispatch) => {
 export const thongTinTaiKhoaAction = (taiKhoan) => async (dispatch) => {
   try {
     const response = await thongTinTaiKhoan(taiKhoan);
-    console.log(response.data);
+
     dispatch({
       type: THONG_TIN_TAI_KHOAN,
       payload: response.data,
