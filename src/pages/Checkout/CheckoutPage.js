@@ -180,13 +180,13 @@ function ChonGhe(props) {
               bgcolor="rgb(65, 66, 70)"
             >
               10
-            </Box>{" "}
+            </Box>
             : Ghế thường
           </Box>
           <Box>
             <Box
               component={Button}
-              className={`${classes.seat}`}
+              className={`${classes.seat} vip-seat`}
               display="inline-block"
               bgcolor="rgb(14, 151, 218)"
             >
@@ -209,9 +209,9 @@ function ChonGhe(props) {
             <Box
               disabled
               component={Button}
-              className={`${classes.seat} `}
+              className={`${classes.seat} booked-seat`}
               display="inline-block"
-              bgcolor="#999"
+              // bgcolor="#999"
             >
               <PersonRoundedIcon color="primary" />
             </Box>{" "}
