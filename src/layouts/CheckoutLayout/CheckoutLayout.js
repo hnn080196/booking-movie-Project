@@ -12,12 +12,10 @@ const useStyles = makeStyles((theme) => ({
 
 const CheckoutLayout = (props) => {
   const classes = useStyles(props);
-  const { isLoading } = useSelector((state) => state.loading);
 
   if (!localStorage.getItem(USER_LOGIN)) {
     return <Redirect to="/login" />;
   }
-  if (isLoading) return <Loading />;
   const { children } = props;
   return <div className={classes.root}>{children}</div>;
 };

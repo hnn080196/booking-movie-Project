@@ -21,7 +21,7 @@ import { history } from "Routes";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import logo from "assets/img/logo.png";
 import { TOKEN, USER_LOGIN } from "util/settings/config";
-const drawerWidth = 200;
+const drawerWidth = 250;
 const adminTheme = createTheme({
   palette: {
     primary: {
