@@ -60,13 +60,16 @@ export const chonGheStyles = (theme) => ({
   row: {
     textAlign: "center",
   },
-
   seat: {
     minWidth: "40px",
     height: "40px",
     padding: "0",
     margin: "3px",
     cursor: "pointer",
+    backgroundColor: "rgb(65, 66, 70)",
+    "&.vip-seat": {
+      backgroundColor: "rgb(14, 151, 218)",
+    },
     "&:hover": { backgroundColor: "#0adc98" },
     "&.booking-seat": {
       backgroundColor: "#0adc98",
@@ -78,12 +81,10 @@ export const chonGheStyles = (theme) => ({
       minWidth: "30px",
       marginBottom: "5px",
       height: "30px",
-      // fontSize: "10px",
     },
     [theme.breakpoints.down("xs")]: {
       minWidth: "28px",
       height: "28px",
-      // fontSize: "10px",
     },
   },
   boughtSeat: {

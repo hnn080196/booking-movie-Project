@@ -124,10 +124,17 @@ function ChonGhe(props) {
           {danhSachGhe?.map((ghe, index) => {
             let bookingSeatClass = "";
             let bookedSeatClass = "";
+            let typeSeat = "";
             let foundSeat = bookingList.findIndex(
               (seat) => seat.maGhe === ghe.maGhe
             );
+            // let findTypeSeat = bookingList.findIndex(
+            //   (seat) => seat.loaiGhe === ghe.loaiGhe
+            // );
             // let gheDaDat = bookingList.findIndex)
+            if (ghe.loaiGhe === "Vip") {
+              typeSeat = "vip-seat";
+            }
             if (ghe.daDat === true) {
               bookedSeatClass = "booked-seat";
             }
@@ -139,14 +146,9 @@ function ChonGhe(props) {
                 <Box
                   component={Button}
                   disabled={ghe.daDat}
-                  className={`${classes.seat} ${bookingSeatClass} ${bookedSeatClass}`}
+                  className={`${classes.seat} ${typeSeat} ${bookingSeatClass} ${bookedSeatClass}`}
                   display="inline-block"
                   onClick={() => dispatch(bookingListAction(ghe))}
-                  bgcolor={
-                    ghe.loaiGhe === "Thuong"
-                      ? "rgb(65, 66, 70)"
-                      : "rgb(14, 151, 218)"
-                  }
                 >
                   {ghe.daDat ? (
                     <PersonRoundedIcon color="primary" />
