@@ -1,4 +1,4 @@
-file balsamid mockup : Movie-project-1.bmpr
+
 
 # booking-movie-project
 1. Trang Chủ
@@ -23,3 +23,6 @@ link : https://booking-movie-project-ten.vercel.app/
 12. yup
 # schedule
 [schedule.xlsx](https://github.com/hnn080196/booking-movie-project/files/7297944/schedule.xlsx)
+# balsamid mockup
+[Movie-Project-1.zip](https://github.com/hnn080196/booking-movie-project/files/7297955/Movie-Project-1.zip)
+hoặc Movie-project-1.bmpr trong source code
