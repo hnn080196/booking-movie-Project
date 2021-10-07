@@ -21,3 +21,5 @@ link : https://booking-movie-project-ten.vercel.app/
 10. react-chartjs-2
 11. react-swipeable-views
 12. yup
+# schedule
+[schedule.xlsx](https://github.com/hnn080196/booking-movie-project/files/7297944/schedule.xlsx)
