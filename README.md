@@ -1,15 +1,16 @@
 
 
 # booking-movie-project
-1. Trang Chủ
-2. Chi Tiết 
-3. Thông Tin Tài Khoản
-4. Đặt Vé 
-5. Admin 
+1. Trang Chủ (Tìm kiếm , Phim, Rạp ,in Tức , App)
+2. Chi Tiết (Thông Tin Phim, Đánh giá , lịch chiếu)
+3. Thông Tin Tài Khoản (Thông Tin Tài khoản , Cập nhật tài khoản , lịch sử đặt vé )
+4. Đặt Vé ( Đặt vé , xem vé đã đặt )
+5. Admin (Quản lý người dùng (thêm ,xóa , sửa) // Quản Lý Phim ( thêm,xóa,sửa,tạo lịch chiếu) // Quản lý Hệ Thống Rạp (hệ thống rạp và rạp )
+tất cả sử dụng kỹ thuật debounce search
 # deploy
 link : https://booking-movie-project-ten.vercel.app/
 # thư viện 
-1. Material-UI
+1. Material-UI (100%)
 2. React-router-dom
 3. Redux-thunk
 4. sweetalert2
