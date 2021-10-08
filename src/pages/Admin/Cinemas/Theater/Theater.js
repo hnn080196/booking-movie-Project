@@ -21,11 +21,11 @@ const columns = [
   {
     field: "maCumRap",
     headerName: "Mã Cụm Rạp",
-    width: 120,
+    width: 300,
     headerAlign: "center",
   },
-  { field: "tenCumRap", headerName: "Tên cụm rạp", width: 200 },
-  { field: "diaChi", headerName: "Địa chỉ", width: 200 },
+  { field: "tenCumRap", headerName: "Tên cụm rạp", width: 300 },
+  { field: "diaChi", headerName: "Địa chỉ", width: 300 },
 ];
 
 function Theater(props) {
