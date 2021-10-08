@@ -99,7 +99,7 @@ function EditToolBar(props) {
   );
 }
 const columns = [
-  { field: "maPhim", headerName: "Mã Phim", width: 120, headerAlign: "center" },
+  { field: "maPhim", headerName: "Mã Phim", width: 150, headerAlign: "center" },
   { field: "tenPhim", headerName: "Tên Phim", width: 200 },
   { field: "biDanh", headerName: "Bí Danh", hide: true },
   {
@@ -113,6 +113,7 @@ const columns = [
     headerName: "Hình Ảnh",
     renderCell: renderImage,
     headerAlign: "center",
+    width: 120
   },
   {
     field: "danhGia",

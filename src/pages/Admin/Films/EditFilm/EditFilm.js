@@ -82,7 +82,7 @@ const EditFilm = (props) => {
       hinhAnh: null,
     },
     validationSchema: validationSchema,
-    onSubmit:  (values) => {
+    onSubmit: (values) => {
       values.maNhom = GROUPAPI;
       console.log(values);
       const formData = new FormData();
@@ -94,7 +94,6 @@ const EditFilm = (props) => {
         }
       }
        dispatch(capNhatPhimAction(formData));
-      
     },
   });
   const handleChange = (event) => {

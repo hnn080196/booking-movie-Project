@@ -55,6 +55,7 @@ export const capNhatPhimAction = (formData) => async (dispatch) => {
       "You clicked the button!",
       "success"
     );
+    // await dispatch(getMoviesAction());
     history.goBack();
   } catch (errors) {
     Swal.fire({

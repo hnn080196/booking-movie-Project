@@ -90,11 +90,11 @@ const columns = [
   {
     field: "taiKhoan",
     headerName: "Tài khoản",
-    width: 120,
+    width: 150,
     headerAlign: "center",
   },
   { field: "matKhau", headerName: "Mật Khẩu", width: 200, hide: true },
-  { field: "email", headerName: "Email", hide: true },
+  { field: "email", headerName: "Email", width: 200 },
   {
     field: "soDt",
     width: 200,
