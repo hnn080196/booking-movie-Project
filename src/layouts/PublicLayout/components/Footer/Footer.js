@@ -22,7 +22,7 @@ class Footer extends Component {
       <footer className={classes.root} id="contact">
         <Container maxWidth="lg">
           <Grid container spacing={2} className={classes.footer__top}>
-            <Grid item sm={4} container spacing={1}>
+            <Grid item xs={12} md={4} container spacing={1}>
               <Grid item xs={12}>
                 <Typography variant="body1" gutterBottom>
                   Boleto
@@ -73,7 +73,7 @@ class Footer extends Component {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid item sm={4} container>
+            <Grid item xs={12} md={4} container>
               <Grid item xs={12}>
                 <Typography variant="body1" gutterBottom>
                   Đối tác
@@ -165,7 +165,7 @@ class Footer extends Component {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item sm={4} container>
+            <Grid item xs={12} md={4} container>
               <Grid item xs={6}>
                 <Typography variant="body1" gutterBottom>
                   MOBILE APP
