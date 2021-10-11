@@ -109,11 +109,12 @@ const ColorlibConnector = withStyles({
 const useChonGheStyles = makeStyles(chonGheStyles);
 function ChonGhe(props) {
   const classes = useChonGheStyles();
-  const { chiTietPhongVe, bookingList } = props;
+  const { chiTietPhongVe, bookingList, danhSachGheKhachDat } = props;
   const theme = useTheme();
   const { danhSachGhe } = chiTietPhongVe;
   const dispatch = useDispatch();
   const matchXS = useMediaQuery(theme.breakpoints.down("sm"));
+  console.log(danhSachGheKhachDat);
   return (
     <div>
       <div className={classes.screenArea}>
@@ -125,9 +126,16 @@ function ChonGhe(props) {
             let bookingSeatClass = "";
             let bookedSeatClass = "";
             let typeSeat = "";
+            let gheKhachDatClass = "";
             let foundSeat = bookingList.findIndex(
               (seat) => seat.maGhe === ghe.maGhe
             );
+            let gheKhachDatIndex = danhSachGheKhachDat.findIndex(
+              (seat) => seat.maGhe === ghe.maGhe
+            );
+            if (gheKhachDatIndex !== -1) {
+              gheKhachDatClass = "gheKhachDat";
+            }
             // let findTypeSeat = bookingList.findIndex(
             //   (seat) => seat.loaiGhe === ghe.loaiGhe
             // );
@@ -145,8 +153,8 @@ function ChonGhe(props) {
               <Fragment key={`${ghe.maGhe}_${index}`}>
                 <Box
                   component={Button}
-                  disabled={ghe.daDat}
-                  className={`${classes.seat} ${typeSeat} ${bookingSeatClass} ${bookedSeatClass}`}
+                  disabled={ghe.daDat || gheKhachDatClass !== ""}
+                  className={`${classes.seat} ${typeSeat} ${bookingSeatClass} ${bookedSeatClass} ${gheKhachDatClass}`}
                   display="inline-block"
                   onClick={() => dispatch(bookingListAction(ghe))}
                 >
@@ -216,6 +224,18 @@ function ChonGhe(props) {
               <PersonRoundedIcon color="primary" />
             </Box>{" "}
             : Ghế Đã Đặt
+          </Box>
+          <Box>
+            <Box
+              disabled
+              component={Button}
+              className={`${classes.seat} gheKhachDat`}
+              display="inline-block"
+              // bgcolor="#999"
+            >
+              10
+            </Box>{" "}
+            : Ghế Khách Đặt
           </Box>
         </div>
       </Box>
@@ -306,12 +326,17 @@ const getStepContent = (
   step,
   chiTietPhongVe,
   bookingList,
-  thongTinTaiKhoan
+  thongTinTaiKhoan,
+  danhSachGheKhachDat
 ) => {
   switch (step) {
     case 0:
       return (
-        <ChonGhe chiTietPhongVe={chiTietPhongVe} bookingList={bookingList} />
+        <ChonGhe
+          chiTietPhongVe={chiTietPhongVe}
+          bookingList={bookingList}
+          danhSachGheKhachDat={danhSachGheKhachDat}
+        />
       );
     case 1:
       return (
@@ -331,7 +356,9 @@ const getStepContent = (
 const useStyles = makeStyles(mainStyles);
 const CheckoutPage = (props) => {
   const classes = useStyles();
-  const { chiTietPhongVe, bookingList } = useSelector((state) => state.booking);
+  const { chiTietPhongVe, bookingList, danhSachGheKhachDat } = useSelector(
+    (state) => state.booking
+  );
   const { thongTinTaiKhoan, userLogin } = useSelector((state) => state.users);
   const [open, setOpen] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
@@ -607,7 +634,8 @@ const CheckoutPage = (props) => {
           activeStep,
           chiTietPhongVe,
           bookingList,
-          thongTinTaiKhoan
+          thongTinTaiKhoan,
+          danhSachGheKhachDat
         )}
         {activeStep === 0 ? renderDrawer : ""}
       </Container>

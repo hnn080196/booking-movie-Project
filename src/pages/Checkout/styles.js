@@ -77,6 +77,11 @@ export const chonGheStyles = (theme) => ({
     "&.booked-seat": {
       backgroundColor: "#999",
     },
+    "&.gheKhachDat": {
+      backgroundColor: "#ff01f7",
+      cursor: "no-drop",
+      color: "#000",
+    },
     [theme.breakpoints.down(620)]: {
       minWidth: "30px",
       marginBottom: "5px",

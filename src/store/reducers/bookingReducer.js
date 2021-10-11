@@ -9,6 +9,7 @@ const { ThongTinLichChieu } = require("_core/models/ThongTinPhongVe");
 const initialState = {
   chiTietPhongVe: new ThongTinLichChieu(),
   bookingList: [],
+  danhSachGheKhachDat: [{ maGhe: 49001 }, { maGhe: 49002 }],
 };
 
 export default (state = initialState, action) => {

@@ -61,11 +61,11 @@ const UpdateModal = (props) => {
       soDt: thongTinTaiKhoan.soDt,
       maLoaiNguoiDung: thongTinTaiKhoan.maLoaiNguoiDung,
       hoTen: thongTinTaiKhoan.hoTen,
+      matKhau: thongTinTaiKhoan.matKhau,
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      values.maNhom = GROUPAPI;
-      values.matKhau = thongTinTaiKhoan.matKhau;
+      values.maNhom = "GP02";
       dispatch(capNhatThongTinNguoDungAction(values));
     },
   });
@@ -113,24 +113,7 @@ const UpdateModal = (props) => {
                   value={formik.values.taiKhoan}
                 />
               </Grid>
-              {/* <Grid item xs={12}>
-                <TextField
-                  name="matKhau"
-                  required
-                  fullWidth
-                  variant="outlined"
-                  className={classes.textField}
-                  label="Mật khẩu"
-                  onChange={formik.handleChange}
-                  size="small"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  value={formik.values.matKhau}
-                  error={formik.touched.matKhau && formik.errors.matKhau}
-                  helperText={formik.touched.matKhau && formik.errors.matKhau}
-                />
-              </Grid> */}
+
               <Grid item xs={12}>
                 <TextField
                   name="email"
@@ -188,7 +171,7 @@ const UpdateModal = (props) => {
           </DialogContent>
           <DialogActions>
             <Button
-              // onClick={handleClose}
+              onClick={handleClose}
               color="textPrimary"
               style={{ backgroundColor: "#388e3c" }}
               type="submit"

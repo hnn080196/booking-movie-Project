@@ -17,6 +17,7 @@ import { history } from "Routes";
 export const getBookingListAction = (maLichChieu) => async (dispatch) => {
   try {
     const response = await layDanhSachPhongVe(maLichChieu);
+    console.log(`bookingList`, response.data);
     dispatch({ type: GET_BOOKING_LIST, payload: response.data });
   } catch (error) {
     console.log(error.response?.data);
