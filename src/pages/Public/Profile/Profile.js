@@ -107,7 +107,7 @@ function Profile() {
                 <Grid container style={{ padding: "20px 0" }}>
                   <Grid item xs={12} md={6} style={{ textAlign: "center" }}>
                     <UserInfo thongTinTaiKhoan={thongTinTimKiem} />
-                  </Grid>G
+                  </Grid>
                   <Grid item xs={12} md={6} className={classes.UpdateModal}>
                     <UpdateModal thongTinTaiKhoan={thongTinTimKiem} />
                     <ChangePassword thongTinTaiKhoan={thongTinTimKiem} />
