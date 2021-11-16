@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import PropTypes from "prop-types";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -69,4 +69,4 @@ TabPanelCarousel.propTypes = {
   value: PropTypes.any.isRequired,
 };
 
-export default TabPanelCarousel;
+export default memo(TabPanelCarousel);

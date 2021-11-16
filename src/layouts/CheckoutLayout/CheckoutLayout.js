@@ -2,8 +2,7 @@ import React, { memo } from "react";
 import { makeStyles } from "@material-ui/core";
 import { USER_LOGIN } from "util/settings/config";
 import { Redirect } from "react-router-dom";
-import { Loading } from "components";
-import { useSelector } from "react-redux";
+
 
 //styles
 const useStyles = makeStyles((theme) => ({

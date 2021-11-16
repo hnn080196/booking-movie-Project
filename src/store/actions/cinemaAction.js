@@ -51,8 +51,7 @@ export const getMovieDetailAction = (id) => async (dispatch) => {
 export const layThongTinCumRapTheoHeThongAction =
   (maHeThongRap) => async (dispatch) => {
     try {
-      const response = await layThongTinCumRapTheoHeThong(maHeThongRap);
-      console.log(`response`, response);
+      const response = await layThongTinCumRapTheoHeThong(maHeThongRap)
       dispatch({
         type: GET_THEATER_LIST,
         payload: response.data,

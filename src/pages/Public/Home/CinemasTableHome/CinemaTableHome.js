@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import PropTypes from "prop-types";
 import {
   Avatar,
@@ -154,4 +154,4 @@ CinemaTableHome.propTypes = {
   cinemaList: PropTypes.any.isRequired,
 };
 
-export default React.memo(CinemaTableHome);
+export default memo(CinemaTableHome);
